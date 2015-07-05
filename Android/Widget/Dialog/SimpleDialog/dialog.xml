@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="290dp"
+    android:layout_height="match_parent"
+    android:background=""
+    android:gravity="center"
+    android:orientation="vertical" >
+    
+	<TextView
+	    android:id="@+id/tv_title"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_gravity="center"
+	    android:layout_marginTop="10dp"
+	    android:gravity="center"
+	    android:text="标题"
+	    android:textColor="@color/black"
+	    android:textSize="18sp"/>
+	
+	<TextView
+	    android:id="@+id/tv_content"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_gravity="center"
+	    android:layout_marginTop="40dp"
+	    android:layout_marginLeft="30dp"
+	    android:layout_marginRight="30dp"
+	    android:layout_marginBottom="30dp"
+	    android:gravity="center"
+	    android:text="提示内容"
+	    android:textColor="@color/sub_desc"
+	    android:textSize="17sp"/>
+	
+	<TextView
+	    android:layout_width="match_parent"
+	    android:layout_height="0.5dp"
+	    android:background="@color/list_divider"/>
+	
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="45dp"
+	    android:layout_weight="2"
+	    android:orientation="horizontal">
+	    
+	    <Button
+	        android:id="@+id/btn_cancel"
+	        android:layout_width="0dp"
+	        android:layout_height="match_parent"
+	        android:layout_weight="1"
+	        android:gravity="center"
+	        android:text="@string/dialog_cancel"
+	        android:textSize="17sp"
+	        android:textColor="@color/light_gray"
+	        android:background="@null"/>
+	    
+	    <Button
+	        android:id="@+id/btn_ok"
+	        android:layout_width="0dp"
+	        android:layout_height="match_parent"
+	        android:layout_weight="1"
+	        android:gravity="center"
+	        android:text="@string/dialog_ok"
+	        android:textSize="17sp"
+	        android:textColor="@color/primary_green"
+	        android:background="@null"/>
+	        
+	</LinearLayout>
+    
+</LinearLayout>
