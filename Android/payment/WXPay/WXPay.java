@@ -1,4 +1,8 @@
 /*
+ *	Title: 微信支付
+ *	Tag: WXPay, weixing, pay
+ *	Update: 2015/07/05
+ *
 	主要流程:
 	GetPrepayIdTask						--从微信服务器获得Prepay ID
 		genProductArgs()				--配置参数，发送到服务器，从而获得Prepay ID
