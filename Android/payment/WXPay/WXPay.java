@@ -1,7 +1,7 @@
 /*
  *	Title: 微信支付
  *	Tag: WXPay, weixing, pay
- *	Update: 2015/07/05
+ *	Update: 2015/07/06
  *
 	主要流程:
 	GetPrepayIdTask						--从微信服务器获得Prepay ID
@@ -20,5 +20,8 @@
 
 	其他：
 	1. 调用支付的Activity需要在AndroidManifest 中定义scheme 字段，内容为APPID；
+	2. 如果是手机端进行第一次签名，body为中文的时候，会导致签名错误，需要在签名后，转换为xml格式的字符串后进行编码
+	String xmlstring = toXml(packageParams);
+        return new String(xmlstring.toString().getBytes(), "ISO8859-1");//这句加上就可以了吧xml转码下
 
 */
