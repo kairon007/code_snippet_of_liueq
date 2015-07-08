@@ -1,0 +1,22 @@
+
+
+<android.support.design.widget.FloatingActionButton
+    android:id="@+id/fabBtn"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom|right"
+    android:src="" #这里设置的是按钮中间的图标，推荐40dp图片
+    android:
+    app:fabSize="normal|mini" #normal对应56dp，mini对应40dp
+    app:elevation="" #设置默认高度，推荐6dp
+    app:pressedTranslationZ="" #设置被按下时候的高度，推荐12dp
+    app:backgroundTint="" #默认按钮颜色是参照style中的accent color，可以覆盖
+    />
+
+
+<!--Bug
+    1. 目前发现在5.0之前的版本默认会有16dp的margin，而5.0之后则没有
+    2. 5.0之后版本默认没有阴影，需要设置app:borderWidth="0dp"后才能出现
+
+    Update: 2015/07/08
+     -->

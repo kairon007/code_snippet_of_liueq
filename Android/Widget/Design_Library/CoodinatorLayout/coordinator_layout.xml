@@ -1,0 +1,58 @@
+#Title: CoordinatorLayout
+<!--
+    Title: CoordinatorLayout
+    Update: 2015/07/08
+    Description:
+	1. 在5.0之前，如果配合CoordinatorLayout一起使用，滑动的时候会导致原本上浮的控件无法返回到原始的位置,目前的解决方法是设置CoordinatorLayout的margin为非0dp。
+	2. 只有针对CoordinatorLayout设计的控件才能够在此布局内发挥作用
+	3. 普通的View放置到此布局内，需要配置app:layout_behavior 才能够正常显示，只有直属于CoordinatorLayout的布局才需要设置
+	4. ScrollView同样不支持CoodinatorLayout，作为替换，需要使用NestedScrollView, 但是依旧要设置app:layout_behavior
+	5. RecyclerView能够直接支持CoordinatorLayout，而ListView不可
+	6. 关于app:layout_scrollFlags 参数的整理
+	    scroll: 只要根据内容滚动而变化，就需要添加此参数
+	    enterAlwaysCollapsed: 隐藏的时候完全消失，但是当未到达顶端之前的下滑，只会以miniHeight的内容返回屏幕内，只有到达了顶端，再次下滑，才会使得整个View都回到屏幕（实际使用体验并不好）
+	    enterAlways: 上滑的时候完全消失，下滑的时候完全回到屏幕
+	    exitUntilCollapsed: 上滑的之后，到达miniHight就不会再消失了，miniHeight的部分会一直留在屏幕内
+
+	7. 貌似TabLayout和某些app:layout_scrollFlags 一起作用会导致体验异常
+	    
+
+	-->
+
+<android.support.design.widget.CoordinatorLayout
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content">
+
+	<android.support.v7.widget.Toolbar
+	    android:id="@+id/toolbar"
+	    android:layout_width="match_parent"
+	    android:layout_height="?attr/actionBarSize"
+	    android:background="?attr/colorPrimary"
+	    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+	    app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+	    app:layout_scrollFlags="scroll|enterAlways" # 可以根据NestedScrollView滚动而变化，下滑出现，上滑隐藏，可以设置多个控件都有此属性
+	    />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:fillViewport="true"
+	app:layout_behavior="@string/appbar_scrolling_view_behavior"> # 这里依旧要设置layout_behavior
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:orientation="vertical"
+	    app:layout_behavior="@string/appbar_scrolling_view_behavior" #默认情况下，大部分布局文件为经过CoordinatorLayout优化，直接放置的话会导致ToolBar覆盖在布局的上层，需要配置此参数才能正常显示
+	    >
+
+	</LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+</android.support.design.widget.CoordinatorLayout>

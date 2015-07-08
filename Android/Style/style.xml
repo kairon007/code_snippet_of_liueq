@@ -1,0 +1,15 @@
+<!-- 
+     Title: Style
+     Tag: style, theme
+     Update: 2015/07/08
+     Description: 自定义的一些Style方法
+     -->
+
+<!-- 去掉Actoinbar-->
+<item name="windowActionBar">false</item>
+<item name="windowNoTitle">true</item>
+
+<!-- 设定主色调-->
+<item name="colorPrimary">#2196F3</item>
+<item name="colorPrimaryDark">#1565C0</item>
+<item name="colorAccent">#1565C0</item>

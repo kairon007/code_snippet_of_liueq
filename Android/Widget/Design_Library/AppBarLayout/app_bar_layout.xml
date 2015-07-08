@@ -1,0 +1,22 @@
+<!-- 
+     Title: AppBarLayout
+     Tag: appbar, toolbar
+     Update: 2015/07/08
+     Description
+	1. AppBarLayout能够让Toolbar生成默认的阴影投射在下层的View上，类似于给Toolbar设置elevation
+     -->
+
+<android.support.design.widget.AppBarLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.Toolbar
+	android:id="@+id/toolbar"
+	android:layout_width="match_parent"
+	android:layout_height="?attr/actionBarSize"
+	android:background="?attr/colorPrimary"
+	app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+	app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+	/>
+
+</android.support.design.widget.AppBarLayout>

@@ -1,0 +1,17 @@
+<!--
+     Title: TabLayout
+     Tag: TabLayout, ViewPager
+     Update: 2015/07/08
+     Description: 
+	1. 根据设计规则，一般TabLayout是放置到屏幕的最上方，在ToolBar之下
+	2. 由上得出，TabLayout需要放置到AppLayout中，位于ToolBar下方，因为AppLayout继承自垂直的LinearLayout
+     -->
+
+<android.support.design.widget.TabLayout
+    android:id="@+id/tabLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" # 设置主题，主要关系到tab标题的文字颜色
+    app:tabMode="scrollable|fixed" # fixed会使得所有的tab都挤在屏幕之内，而scrollable则会让tab适应其文字的宽度，并且整个TabLayout可以滚动
+    app:tabGravity="fill|center"/> # 仅在tabMode为fixed的时候起作用，fill会填充满整个TabLayout，而center则会居中
+

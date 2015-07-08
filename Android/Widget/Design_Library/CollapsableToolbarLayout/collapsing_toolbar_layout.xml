@@ -1,0 +1,40 @@
+<!-- 
+     Title: CollapsingToolbarLayout
+     Tag: Collapsing, toolbar Update: 2015/07/08
+     Description:
+	1. 专门用于Toolbar展开
+	2. 当使用了CollapsingToolbarLayout之后，ToolBar原本的标题会被覆盖，需要使用collaspingToolbarLayout.setTitle()方法来设置标题
+     -->
+
+
+<android.support.design.widget.AppBarLayout
+    android:layout_width="match_parent"
+    android:layout_height="256dp"> # 这里需要设置一个比Toolbar高度更大的值，默认进入此界面就会展示这么高的高度，上滑才会使其缩回Toolbar正常大小
+
+    <android.support.design.widget.CollapsingToolbarLayout
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	app:layout_scrollFlags="scroll|exitUntilCollapsed" # 这里应该固定就是此参数才可以实现常见的效果
+	app:Theme="" # 同样可以设置Theme来控制字体颜色等
+	app:expandedTitleMargin		    # 四个margin 可以设置标题的位置
+	app:expandedTitleMarginBottom
+	app:expandedTitleMarginEnd
+	app:expandedTitleMarginStart
+	app:collapsedTitleTextAppearance # 当收缩状态的时候标题的大小
+	app:expandedTitleTextAppearance # 当伸展状态的时候标题的大小
+	>
+
+	<android.support.v7.widget.Toolbar
+	    android:id="@+id/toolbar"
+	    android:layout_width="match_parent"
+	    android:layout_height="?attr/actionBarSize"
+	    android:minHeight="?attr/actionBarSize" # 必须要设置minHeight，否则会导致收回去的时候会Toolbar下方会有空白，并且minHeight需要和layout_height一致
+	    android:background="?attr/colorPrimary"
+	    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+	    app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+	    app:layout_collapseMode="pin"
+	    />
+
+    </android.support.design.widget.CollapsingToolbarLayout>
+
+</android.support.design.widget.AppBarLayout>
