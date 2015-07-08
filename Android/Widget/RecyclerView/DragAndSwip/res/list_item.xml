@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- 可能会出现TextView只能wrap_content的情况，可以设置一个Holder来强制alignParentRight来使得View match_parent -->
+    <TextView
+	android:id="@+id/tv"
+	android:layout_width="?listPreferredItemHeight"
+	android:layout_height="?listPreferredItemHeight"
+	android:layout_alignParentLeft="true"
+	android:layout_alignParentRight="true"
+	android:gravity="center|left"
+	android:singleLine="true"
+	android:textSize="15sp"
+	tools:text="Hello World!"/>
+</RelativeLayout>
