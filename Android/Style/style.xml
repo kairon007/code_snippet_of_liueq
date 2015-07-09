@@ -3,7 +3,18 @@
      Tag: style, theme
      Update: 2015/07/08
      Description: 自定义的一些Style方法
-     -->
+
+#常见的暗色，亮色Theme，如果是使用Toolbar，应该选择NoActionBar的主题
+- Theme.AppCompat -> 暗色Activity，暗色app bar (实际字体是白色)
+- Theme.AppCompat.Light -> 亮色Activity，亮色app bar(实际字体是黑色)
+- Theme.AppCompat.Light.DarkActionBar -> 亮色Activity，暗色app bar(实际字体则是白色)
+
+#关于ThemeOverlay开头的主题
+ThemeOverlay一般用于某些单独的控件中，只对于该控件生效，覆盖默认设置的主题。
+
+
+
+-->
 
 <!-- 去掉Actoinbar-->
 <item name="windowActionBar">false</item>

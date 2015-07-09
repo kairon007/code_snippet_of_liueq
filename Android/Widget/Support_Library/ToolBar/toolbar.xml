@@ -8,7 +8,7 @@
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
-    android:background="?attr/colorPrimary"
+    android:background="?attr/colorPrimary" # 使用?attr/的形式来引用style中的某些属性
     app:popupTheme="@style/ThemeOverlay.AppCompat.Dark" # Toolbar上弹出菜单的主题
     app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" # Toolbar 本身的主题，主要是字体颜色，菜单按钮默认颜色等
     />
