@@ -1,9 +1,11 @@
 <!-- 
      Title: CollapsingToolbarLayout
-     Tag: Collapsing, toolbar Update: 2015/07/08
+     Tag: Collapsing, toolbar Update: 2015/07/09
      Description:
 	1. 专门用于Toolbar展开
 	2. 当使用了CollapsingToolbarLayout之后，ToolBar原本的标题会被覆盖，需要使用collaspingToolbarLayout.setTitle()方法来设置标题
+	3. 偶尔Toolbar收缩回去的时候，其下方会出现和Toolbar同等宽度的留白，暂时不知道原因是什么
+	4. 在给CollaspingToolbarLayout中添加图片后，需要移除Toolbar的background属性
      -->
 
 
@@ -24,12 +26,21 @@
 	app:expandedTitleTextAppearance # 当伸展状态的时候标题的大小
 	>
 
+	<ImageView # 想要在collaspingToolbarLayout展开的时候显示图片，只需要添加即可，注意位置要在Toolbar之上，因为CollaspingToolbarLayout继承自FrameLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:scaleType="centerCrop"
+	    android:src="@mipmap/img"
+	    app:layout_collapseMode="parallax" #使用视差模式，收缩的时候，图片所显示的内容会根据收缩的位置而略微变化
+	    app:layout_collapseParallaxMultiplier="0.7" # 微调视差模式的显示 参数为0.0~1.0
+	    />
+
+
 	<android.support.v7.widget.Toolbar
 	    android:id="@+id/toolbar"
 	    android:layout_width="match_parent"
 	    android:layout_height="?attr/actionBarSize"
-	    android:minHeight="?attr/actionBarSize" # 必须要设置minHeight，否则会导致收回去的时候会Toolbar下方会有空白，并且minHeight需要和layout_height一致
-	    android:background="?attr/colorPrimary"
+	    android:background="?attr/colorPrimary" # 如果下方有ImageView，需要移除此参数才可以使得图片在Toolbar中显示
 	    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
 	    app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
 	    app:layout_collapseMode="pin"

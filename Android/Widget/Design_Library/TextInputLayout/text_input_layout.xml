@@ -1,0 +1,16 @@
+<!-- 
+     Title: TextInputLayout
+     Tag: TextInputLayout, EditText, hint
+     Update: 2015/07/09
+     Description: 使得EditText的hint在输入文字之后移动到输入框上方-->
+
+
+<android.support.design.widget.TextInputLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <EditText
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:hint="Username"/>
+</android.support.design.widget.TextInputLayout>

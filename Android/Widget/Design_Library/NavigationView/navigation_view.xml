@@ -1,0 +1,78 @@
+<!-- 
+     Title: NavigationView
+     Tag: NavigationView
+     Update: 2015/07/08
+     Description
+     -->
+
+<android.support.design.widget.NavigationView
+    android:id="@+id/navigation"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_gravity="start"
+    app:headerLayout="@layout/nav_header" # 这里指定HeaderLayout
+    app:itemIconTint="#333"
+    app:itemTextColor="#333"
+    app:menu="@menu/navigation_drawer_items" # 这里指定了Menu
+    />
+
+
+<!-- HeaderLayout -->
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="192dp"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+    android:orientation="vertical">
+
+    <!-- 背景 -->
+    <ImageView
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:src="@mipmap/nav_header_bg"
+	android:scaleType="centerCrop"
+	/>
+
+    <!-- Avatar -->
+    <ImageView
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:src="@mipmap/nuuneoi"
+	android:layout_gravity="bottom"
+	android:layout_marginBottom="36dp"
+	android:layout_marginLeft="16dp"/>
+
+    <!-- Name -->
+    <TextView
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:layout_gravity="bottom"
+	android:layout_margin="16dp"
+	android:text="nuuneoi"
+	android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+
+</FrameLayout>
+
+<!-- Menu -->
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="all">
+	<item
+	    android:id="@+id/navItem1"
+	    android:icon="@android:drawable/ic_notification_clear_all"
+	    android:title="Home"/>
+	<item
+	    android:id="@+id/navItem2"
+	    android:icon="@android:drawable/ic_notification_clear_all"
+	    android:title="Blog"/>
+	<item
+	    android:id="@+id/navItem3"
+	    android:icon="@android:drawable/ic_notification_clear_all"
+	    android:title="About"/>
+	<item
+	    android:id="@+id/navItem4"
+	    android:icon="@android:drawable/ic_notification_clear_all"
+	    android:title="Contact"/>
+
+    </group>
+</menu>
