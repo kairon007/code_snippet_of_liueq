@@ -14,4 +14,6 @@ Snackbar.make(rootLayout, "Content", Snackbar.LENGTH_SHORT)
             	Toast.makeText(MainActivity.this, "Undo", Toast.LENGTH_SHORT).show();
             }
         })
+	.setActionTextColor(R.color.material_blue) // 设置提示字体的颜色
+	.setDuration(4000)	//设置持续时间
         .show();
