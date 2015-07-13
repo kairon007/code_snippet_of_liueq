@@ -1,6 +1,6 @@
 /**
  * Title: RecyclerView
- * Update: 2015/07/07
+ * Update: 2015/07/13
  */
 
 @Override
@@ -23,6 +23,7 @@ protected void onCreate(Bundle savedInstanceState) {
 /**
  * 关于RecyclerViewAdapter的写法
  * 这里继承了RecyclerView.Adapter，泛型需要使用ViewHolder，可以在Adapter中定义一个内部类
+ * RecyclerView 的item点击事件，应该在ViewHolder中处理，将listner传入构造方法，然后在onBindViewHolder中设定想要监听的View
  */
 public class RecyclerListAdapter extends RecyclerView.Adapter<RecyclerListAdapter.ViewHolder> {
 
