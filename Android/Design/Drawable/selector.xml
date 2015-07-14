@@ -20,7 +20,7 @@
     <item android:state_enable="@android:color/white">
 	<!--可用状态-->
     </item>
-    <item android:state_window_focused="">
+    <item android:drawable="">
 	<!--默认状态-->
     </item>
 
