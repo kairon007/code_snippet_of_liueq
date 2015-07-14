@@ -1,0 +1,14 @@
+<!-- Title: ripple
+     Tag: ripple, drawable
+     Update: 2015/07/14
+     Description:
+	1. 如果想让Ripple效果没有边界，就不需要设置<item android:id="@android:id/mask"/>。此属性是为了让Ripple效果限定在View的范围内
+     -->
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="?attr/colorPrimary">
+    <item android:id="@android:id/mask"
+	android:drawable="@android:color/white"/>
+</ripple>

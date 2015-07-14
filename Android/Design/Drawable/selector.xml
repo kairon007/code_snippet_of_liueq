@@ -1,0 +1,27 @@
+<!--
+     Title: selector
+     Tag: drawable, selector
+     Update: 2015/07/14
+     Description:
+	1. 常用的状态如下5种
+    -->
+
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="?attr/colorPrimary">
+	<!--被点击状态-->
+    </item>
+    <item android:state_selected="">
+	<!--被选中状态-->
+    </item>
+    <item android:state_focused="@android:color/white">
+	<!--获得焦点状态-->
+    </item>
+    <item android:state_enable="@android:color/white">
+	<!--可用状态-->
+    </item>
+    <item android:state_window_focused="">
+	<!--默认状态-->
+    </item>
+
+</selector>
