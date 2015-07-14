@@ -23,7 +23,7 @@ protected void onCreate(Bundle savedInstanceState) {
 /**
  * 关于RecyclerViewAdapter的写法
  * 这里继承了RecyclerView.Adapter，泛型需要使用ViewHolder，可以在Adapter中定义一个内部类
- * RecyclerView 的item点击事件，应该在ViewHolder中处理，将listner传入构造方法，然后在onBindViewHolder中设定想要监听的View
+ * RecyclerView 的item点击事件，应该在ViewHolder中处理，对ViewHolder中的View进行监听
  */
 public class RecyclerListAdapter extends RecyclerView.Adapter<RecyclerListAdapter.ViewHolder> {
 
@@ -48,6 +48,12 @@ public class RecyclerListAdapter extends RecyclerView.Adapter<RecyclerListAdapte
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
 	viewHolder.mTextView.setText(mList.get(i));
+	viewHolder.setOnClickListener(new View.setOnClickListener(){
+	    @Override
+	    public void onClick(View v){
+		//TODO 点击事件
+	    }
+	}
 
     }
 
