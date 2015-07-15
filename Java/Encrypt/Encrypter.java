@@ -4,6 +4,7 @@
  *  Update Time:2015/07/01
  *  Path:
  *  Description:DES, AES, MD5,SHA1 等算法的实现。
+ *	1. AES加密的密钥需要是128bit，256bit等等
  */
 
 public class Encrypter {

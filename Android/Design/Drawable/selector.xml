@@ -1,23 +1,29 @@
 <!--
      Title: selector
      Tag: drawable, selector
-     Update: 2015/07/14
+     Update: 2015/07/15
      Description:
 	1. 常用的状态如下5种
+	2. 似乎不能在android:drawable中使用?attr的形式
+	3. 在Android5.0以前的系统中，对Button设置selector作为背景可以正常发挥作用，但是在其以后，Button不会根据Selector的设置来改变背景
     -->
 
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_pressed="?attr/colorPrimary">
+    <item android:state_pressed="true"
+	android:drawable="">
 	<!--被点击状态-->
     </item>
-    <item android:state_selected="">
+    <item android:state_selected="true"
+	android:drawable="">
 	<!--被选中状态-->
     </item>
-    <item android:state_focused="@android:color/white">
+    <item android:state_focused="true"
+	android:drawable="">
 	<!--获得焦点状态-->
     </item>
-    <item android:state_enable="@android:color/white">
+    <item android:state_enable="true"
+	android:drawable="">
 	<!--可用状态-->
     </item>
     <item android:drawable="">

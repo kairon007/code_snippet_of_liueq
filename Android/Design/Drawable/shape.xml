@@ -1,0 +1,14 @@
+<!-- Title: shape
+     Tag: shape, drawable
+     Update: 2015/07/15
+     Description:
+     -->
+
+<shape android:shape="rectangle">
+    <corners android:radius="0.9dp"/>			    # 角曲率
+    <solid android:color="@android:color/white"/>	    # 填充颜色
+    <stroke android:color="@android:color/darker_gray"	    # 描边
+	android:width="0.5dp"/>
+    <padding android:left="10dp"			    # 留白
+	android:right="10dp"/>
+</shape>
