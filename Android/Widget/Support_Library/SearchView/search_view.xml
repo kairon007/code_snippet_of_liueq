@@ -1,0 +1,54 @@
+<!-- 
+     Title: SearchView对应的Manifest配置和其他xml文件配置
+     Tag: SearchView, search
+     Update: 2015/07/15
+     Description
+     -->
+
+
+<!------------ 采用实时过滤 --------------->
+
+<!-- Manifest.xml -->
+<activity
+    android:name=".activity.MainActivity"
+    android:launchMode="singleTop">
+    <intent-filter>
+	<action android:name="android.intent.action.MAIN" />
+	<category android:name="android.intent.category.LAUNCHER" />
+	<action android:name="android.intent.action.SEARCH" /> # 关于搜索需要配置的部分，当前行和下一行
+	<action android:name="android.intent.action.VIEW" />
+    </intent-filter>
+
+    <meta-data # 搜索相关配置
+	android:name="android.app.searchable"
+	android:resource="@xml/searchable" />  # 注意这里的xml是Search的hint等内容
+</activity>
+
+<meta-data # 搜索相关配置
+    android:name="android.app.default_searchable"
+    android:value="com.liueq.testdagger.activity.MainActivity" />
+
+<!-- menu.xml -->
+
+<item android:id="@+id/action_search"
+    android:icon="@android:drawable/ic_menu_search"
+    app:showAsAction="always"
+    app:actionViewClass="android.support.v7.widget.SearchView"
+    android:title="Search"/>
+
+<!-- searchable.xml -->
+<?xml version="1.0" encoding="utf-8"?>
+<searchable xmlns:android="http://schemas.android.com/apk/res/android"
+    android:hint="@string/search_hint"
+    android:label="@string/app_name">
+</searchable>
+
+
+
+
+
+
+
+
+
+
