@@ -1,7 +1,7 @@
 /**
  * Title: Toolbar的搜索栏, SearchView
  * Tag: SearchView, Search
- * Update: 2015/07/15
+ * Update: 2015/07/16
  * Description:
  *  1. 主要有两种方式，一种是点击键盘上的搜索按钮，跳转到SearchResult的Activity；另一种是不跳转，监听SearchView的Text变化，实时的过滤掉当前的List中的结果
  */
@@ -39,4 +39,39 @@ if (searchView != null) {
 	    }
 	}
     });
+}
+
+/*******************************************/
+
+/**
+ * 采用跳转到SearchRusltActvity的方法
+ */
+MenuItem searchItem = menu.findItem(R.id.action_search);
+SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+SearchView searchView = null;
+if(searchItem != null){
+    searchView = (SearchView) searchItem.getActionView();
+}
+if (searchView != null) {
+    searchView.setSearchableInfo(searchManager.getSearchableInfo(new ComponentName(this, SearchResultActivity.class))); //注意这要指明跳转的Activity
+}
+
+
+/**
+ * ResultActivity接受搜索信息
+ */
+
+@Override
+protected void onNewIntent(Intent intent){//activity重新置顶
+    super.onNewIntent(intent);
+    doQuery(intent);
+}
+
+
+private void doQuery(Intent intent){
+    String queryAction=intent.getAction();
+    if(Intent.ACTION_SEARCH.equals(intent.getAction())){
+	String queryString=intent.getStringExtra(SearchManager.QUERY);
+	//TODO 获得Key之后就可以写搜索逻辑
+    }
 }

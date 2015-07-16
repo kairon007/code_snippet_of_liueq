@@ -1,7 +1,7 @@
 <!-- 
      Title: SearchView对应的Manifest配置和其他xml文件配置
      Tag: SearchView, search
-     Update: 2015/07/15
+     Update: 2015/07/16
      Description
      -->
 
@@ -44,8 +44,26 @@
 </searchable>
 
 
+<!---------- 采用跳转到SearchResultActivity的方式，主要是Manifest的配置不同 -------------->
 
+<!-- Manifest.xml -->
 
+<meta-data # 搜索相关配置
+    android:name="android.app.default_searchable"
+    android:value="com.liueq.testdagger.activity.SearchResultActivity" />
+
+<activity
+    android:name=".SearchResultActivity"
+    android:label="@string/title_activity_search"
+    android:parentActivityName=".MainActivity" >
+    <intent-filter>
+	<action android:name="android.intent.action.SEARCH" />
+    </intent-filter>
+    <meta-data
+	android:name="android.app.searchable"
+	android:resource="@xml/searchable" />
+
+</activity>
 
 
 
