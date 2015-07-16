@@ -1,6 +1,15 @@
 /**
  * Title: RecyclerView
  * Update: 2015/07/13
+ * Description:
+ *  1. 关于LayoutMananger，常见的有3中LinearLayoutManager, GridLayoutManager, StaggeredGridLayoutManager
+ *  2. 调用RecyclerView默认动画，通过notify不同的类型，RecyclerView会自动显示动画
+ *	notifyItemChanged()
+ *	notifyItemInserted() 
+ *	notifyItemRemoved()
+ *	notifyItemRangeChanged()
+ *	notifyItemRangeInserted()
+ *	notifyItemRangeRemoved()
  */
 
 @Override
@@ -36,9 +45,12 @@ public class RecyclerListAdapter extends RecyclerView.Adapter<RecyclerListAdapte
 	mContext = context;
     }
 
-    //创建ViewHolder，从布局文件中获取ViewHode的布局，并且新建一个Holder，作为返回值
+    /** 
+     * 创建ViewHolder，从布局文件中获取ViewHode的布局，并且新建一个Holder，作为返回值
+     * 注意第二个参数，根据viewType来生成不同的Holder对象
+     */
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
 	View v = (View) LayoutInflater.from(mContext).inflate(R.layout.list_item, null);
 	ViewHolder viewHolder = new ViewHolder(v);
 	return viewHolder;
@@ -62,10 +74,20 @@ public class RecyclerListAdapter extends RecyclerView.Adapter<RecyclerListAdapte
 	return mList.size();
     }
 
+    /**
+     * 获取Item的类型，可以使用固定的，也可以根据List中的对象类型来返回不同类型
+     * 这里的返回值会用来在onCreateViewHolder中
+     */
+    @Override
+    public int getItemViewType(int position){
+	int type = mList.get(position).getType(); //这里演示的是item获取类型
+	return type;
+    }
 
     /**
      * 定义一个内部类作为ViewHolder，需要继承RecyclerView.ViewHolder
      * 另外一定值得注意的地方是静态内部类可以节省内存
+     * ViewHolder可以有多个
      */
     public static class ViewHolder extends RecyclerView.ViewHolder{
 
