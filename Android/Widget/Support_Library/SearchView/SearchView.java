@@ -1,7 +1,7 @@
 /**
  * Title: Toolbar的搜索栏, SearchView
  * Tag: SearchView, Search
- * Update: 2015/07/16
+ * Update: 2015/07/17
  * Description:
  *  1. 主要有两种方式，一种是点击键盘上的搜索按钮，跳转到SearchResult的Activity；另一种是不跳转，监听SearchView的Text变化，实时的过滤掉当前的List中的结果
  */
@@ -18,6 +18,11 @@ if(searchItem != null){
 }
 if (searchView != null) {
     searchView.setSearchableInfo(searchManager.getSearchableInfo(new ComponentName(this, this)));
+    searchView.setSubmitButtonEnable(true);//设置是否可以提交
+
+    /**
+     * 当SearchView输入的内容变化时候触发
+     */
     searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 	@Override
 	public boolean onQueryTextSubmit(String query) {
@@ -30,7 +35,10 @@ if (searchView != null) {
 	    return false;
 	}
     });
-
+    
+    /**
+     * 当焦点从SearchView移开的时候触发
+     */
     searchView.setOnQueryTextFocusChangeListener(new View.OnFocusChangeListener() {
 	@Override
 	public void onFocusChange(View v, boolean hasFocus) {
@@ -39,6 +47,18 @@ if (searchView != null) {
 	    }
 	}
     });
+
+    /**
+     * 当关闭SearchView的时候触发
+     */
+    searchView.setOnCloseListener(new SearchView.OnCloseListener() {
+	@Override
+	public boolean onClose() {
+	    presenter.loadData();
+	    return false;
+	}
+    });
+
 }
 
 /*******************************************/
