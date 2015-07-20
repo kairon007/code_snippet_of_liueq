@@ -1,7 +1,7 @@
 /**
  * Title: PullToRefreshActivity
  * Tag: PullToRefresh, activity
- * Update: 2015/07/16
+ * Update: 2015/07/20
  * Description
  */
 
@@ -20,5 +20,12 @@ disableRefresh();
 
 /* 0005. 设置当没有内容显示的默认文字 */
 setNoResultTextId();
+
+
+/* 0006. 手动设置下拉刷新 */
+@Override
+public void onPullDownToRefresh() {
+    pushEventRefresh(BFMEventCode.HTTP_GoldBuy);
+}
 
 

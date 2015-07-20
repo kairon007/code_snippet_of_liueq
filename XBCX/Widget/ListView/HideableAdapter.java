@@ -30,9 +30,9 @@ public class ExHideableAdapter extends HideableAdapter{
 
 
     /**
-     *      * 填充数据
-     *           * @param course
-     *                */
+     *  填充数据
+     *  @param course
+     */
     public void updateUI(Course course){
 
     }
