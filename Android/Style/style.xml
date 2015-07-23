@@ -1,7 +1,7 @@
 <!-- 
      Title: Style
      Tag: style, theme
-     Update: 2015/07/08
+     Update: 2015/07/23
      Description: 自定义的一些Style方法
 
 #常见的暗色，亮色Theme，如果是使用Toolbar，应该选择NoActionBar的主题
@@ -24,3 +24,20 @@ ThemeOverlay一般用于某些单独的控件中，只对于该控件生效，�
 <item name="colorPrimary">#2196F3</item>
 <item name="colorPrimaryDark">#1565C0</item>
 <item name="colorAccent">#1565C0</item>
+
+
+<!-- 自定义一些控件的属性，然后可以在控件中直接引用Style，而不需要一一再指定了 -->
+
+# 例如定义一个ProgressBar的属性
+<style name="AppTheme.ProgressBar">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_centerInParent">true</item>
+    <item name="android:layout_gravity">center</item>
+    <item name="android:visibility">visible</item>
+</style>
+
+# 下次使用的时候就可以直接设置
+<ProgressBar
+    style="@style/AppTheme.ProgressBar"
+    android:layout_centerInParent="true"/>

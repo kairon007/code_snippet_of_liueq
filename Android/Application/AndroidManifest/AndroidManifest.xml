@@ -1,0 +1,12 @@
+<!--
+     Title: AndroidManifest
+     Tag: mainfest
+     Update: 2015/07/23
+     Description
+     -->
+
+<!-- 控制能够安装此App的设备的要求 -->
+<uses-feature/>
+
+
+
