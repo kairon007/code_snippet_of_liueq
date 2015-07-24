@@ -10,7 +10,11 @@
 public static boolean isNetworkAvailable(Context context) {
     ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);   
     if (cm != null) {
-        //如果仅仅是用来判断网络连接则可以使用 cm.getActiveNetworkInfo().isAvailable();  
+        /* 
+	 * 如果仅仅是用来判断网络连接则可以使用 
+	 * 1. networkInfo.isAvailable();  
+	 * 2. networkInfo.isConnectedOrConnecting();
+	 */
         NetworkInfo[] info = cm.getAllNetworkInfo();   
         if (info != null) {   
             for (int i = 0; i < info.length; i++) {   
