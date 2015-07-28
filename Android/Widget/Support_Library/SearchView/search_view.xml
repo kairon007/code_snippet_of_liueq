@@ -3,6 +3,7 @@
      Tag: SearchView, search
      Update: 2015/07/16
      Description
+	1. SearchView正确展开必须有app:showAsAction="always|collapseActionView"
      -->
 
 
@@ -32,7 +33,7 @@
 
 <item android:id="@+id/action_search"
     android:icon="@android:drawable/ic_menu_search"
-    app:showAsAction="always"
+    app:showAsAction="always|collapseActionView"
     app:actionViewClass="android.support.v7.widget.SearchView"
     android:title="Search"/>
 
