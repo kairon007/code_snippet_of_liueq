@@ -48,6 +48,7 @@ public class SimpleItemTouchHelperCallback extends ItemTouchHelper.Callback {
 
     @Override
     public boolean isItemViewSwipeEnabled() {
+	//如果有要禁用swipe，只需要返回false即可
         return true;
     }
 
@@ -62,6 +63,9 @@ public class SimpleItemTouchHelperCallback extends ItemTouchHelper.Callback {
         // Enable drag and swipe in both directions
         final int dragFlags = ItemTouchHelper.UP | ItemTouchHelper.DOWN;
         final int swipeFlags = ItemTouchHelper.START | ItemTouchHelper.END;
+	//如果是Grid样式的RecyclerView，那么drag就应该是上下左右，并且禁止swipe
+	//final int dragFlags = ItemTouchHelper.UP | ItemTouchHelper.DOWN | ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT;
+	//final int swipeFlags = 0;
         return makeMovementFlags(dragFlags, swipeFlags);
     }
 

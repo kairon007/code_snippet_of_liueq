@@ -21,6 +21,8 @@ protected void onCreate(Bundle savedInstanceState) {
     RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rv);
     recyclerView.setHasFixedSize(true);
     recyclerView.setLayoutManager(new LinearLayoutManager(this));
+    //如果是Grid形式的,需要设置LayoutManager为如下形式
+    //final GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), spanCount);
 
     String [] strs = {"Hello", "My", "name", "is", "liueq", "how", "are", "you", "today"};
     List<String> list = Arrays.asList(strs);

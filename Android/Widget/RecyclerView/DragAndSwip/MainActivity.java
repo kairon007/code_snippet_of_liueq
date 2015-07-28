@@ -1,3 +1,11 @@
+/**
+ * Title: RecyclerView
+ * Tag: RecyclerView, list, grid
+ * Update: 2015/07/28
+ * Description: 带有drag和swipe的recyclerView
+ */
+
+
 package com.example.liueq.testactiontransition;
 
 import android.app.Activity;
@@ -47,6 +55,24 @@ public class MainActivity extends Activity implements RecyclerListAdapter.OnStar
         mItemTouchHelper = new ItemTouchHelper(callback);
         mItemTouchHelper.attachToRecyclerView(recyclerView);
     }
+
+
+    /**
+     * 创建Grid形式的Recycler，和List形式的大同小异，区别只是需要禁用swipe，并且drag是4个方向
+     */
+    private void createGridRecyclerView(){
+	RecyclerView recyclerView = new RecyclerView(this);
+	recyclerView.setHasFixedSize(true);
+	recyclerView.setAdapter(adapter);
+	final int spanCount = 2;//Grid的列数
+	final GridLayoutManager layoutManager = new GridLayoutManager(this, spanCount);
+	recyclerView.setLayoutManager(layoutManager);
+
+	ItemTouchHelper.Callback callback = new SimpleItemTouchHelperCallback(adapter);
+	mItemTouchHelper =  new ItemTouchHelper(callback);
+	mItemTouchHelper.attachToRecyclerView(recyclerView);
+    }
+
 
     @Override
     public void onStartDrag(RecyclerView.ViewHolder viewHolder) {

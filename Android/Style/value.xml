@@ -1,0 +1,10 @@
+<!--
+    Title: Values
+    Tag: value
+    Update: 2015/07/28
+    Description:
+    -->
+
+<!-- 常用的一些系统自带属性 -->
+android:foreground="?selectableItemBackground" # 设定背景图片被选择的时候会加上阴影，如果是5.0以后，则是有ripple效果
+android:layout_height="?listPreferredItemHeigth" # 推荐的ListItem的高度
