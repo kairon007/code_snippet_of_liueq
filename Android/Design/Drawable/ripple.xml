@@ -1,6 +1,6 @@
 <!-- Title: ripple
      Tag: ripple, drawable
-     Update: 2015/07/14
+     Update: 2015/07/29
      Description:
 	1. 如果想让Ripple效果没有边界，就不需要设置<item android:id="@android:id/mask"/>。此属性是为了让Ripple效果限定在View的范围内
 	2. 如果设置了android:id/mask，会导无法设置ripple的默认背景颜色，当设置了背景颜色后，Rippe的范围会被限定在View里，如1所说效果
@@ -12,5 +12,17 @@
 <ripple xmlns:android="http://schemas.android.com/apk/res/android"
     android:color="?attr/colorPrimary">
     <item android:id="@android:id/mask"
-	android:drawable="@android:color/white" /> #这里设置的color/white实际上不会其作用，因为设置了mask
+	android:drawable="@android:color/white" /> #这里设置的color/white实际上不会其作用，因为设置了mask，但是必须设置drawable，否则会报错
+
+    <!-- 下面是一个复杂的形状示例，如果item有具体内容，就不用mask-->
+    <item>
+	<shape android:shape="rectangle">
+	    <corners android:radius="0.9dp"/>
+	    <solid android:color="@android:color/white"/>
+	    <stroke android:color="@android:color/darker_gray"
+		android:width="0.5dp"/>
+	    <padding android:left="10dp"
+		android:right="10dp"/>
+	</shape>
+    </item>
 </ripple>
