@@ -1,0 +1,10 @@
+<!--
+    Title: ContentProvider
+    Tag: contentProvider
+    Update: 2015/08/03
+    Description: ContentProvider在Manifest中的定义
+    -->
+
+<provider
+    android:authorities="com.liueq.testasyncaccount" 这里必须要和ContentProvider中定义的AUTHORITY一致
+    android:name=".MyContentProvider"/>
