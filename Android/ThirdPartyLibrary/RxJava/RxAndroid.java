@@ -1,7 +1,7 @@
 /**
  * Title: RxAndroid 中常见用法
  * Tag: 
- * Update: 2015/08/06
+ * Update: 2015/08/07
  * Description: 
  */
 
@@ -24,7 +24,7 @@ Schedulers.io(); //IO线程，一般是网络或者数据读取使用
 
 /**
  * 3.map操作
- *	map操作默认都是在UI线程，暂时没找到方法修改
+ 	map操作默认都是在UI线程，暂时没找到方法修改
  */
 map(new Func1<T, S>(){
 
@@ -35,6 +35,17 @@ map(new Func1<T, S>(){
     }
 }
 
+
+/**
+ * 3.5 flatMap操作符
+ *	返回一个Observable
+ */
+flatMap(new Fun1<List<Contributor>, Observable<Contributor>>(){
+    @Override
+    public Observalble<Contributor> call(List<Contributor> contributors){
+	return Observable.from(contributors);
+    }
+}
 
 /**
  * 4.buffer操作符
@@ -65,4 +76,12 @@ ViewObservable.clicks(mButtonAsync)
 	    Toast.makeText(MainActivity.this, sb.toString(), Toast.LENGTH_SHORT).show();
 	}
     });
+
+/**
+ * 5. debounce操作符
+ *	类似于delay，延迟一段时间之后再传递哥Subscriber
+ */
+
+debounce(400, TimeUnit.MILLISECONDS)
+
 

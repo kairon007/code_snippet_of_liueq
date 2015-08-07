@@ -1,7 +1,7 @@
 /**
  * Title: Observable
  * Tag: Observable
- * Update: 2015/08/06
+ * Update: 2015/08/07
  * Description: Observable的各种用法
  */
 
@@ -31,3 +31,14 @@ ViewObservable.clicks(button, true) //true或fales是指是否自动发出第一
 	    return t;
 	}
     });
+
+/**
+ * 3.监听EditText的变化
+ */
+
+Observable<OnTextChangeEvent> textChangeObservable = WidgetObservable.text(mSearch);//将EditText和WidgetObservable绑定
+
+mSubscription = AppObservable.bindActivity(this, textChangeObservable)
+    .debounce(400, TimeUnit.MILLISECONDS) //延迟400毫秒后再执行下一步操作
+    .observeOn(AndroidSchedulers.mainThread())
+    .subscribe(getSearcheObserver());
